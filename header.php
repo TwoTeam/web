@@ -8,7 +8,6 @@
         <meta name="author" content="">
 
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/fuelux.min.css" rel="stylesheet">
         <link rel="shortcut icon" href="../assets/ico/favicon.png">
     </head>
 
