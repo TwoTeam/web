@@ -20,7 +20,7 @@ if ($_POST) {
 
             if ($count == 1) {
                 $_SESSION['user_id'] = $user['id'];
-                echo 'redirect|index.php';
+                echo 'redirect|admin.php';
             } else {
                 echo 'error|Napaka pri prijavi!';
             }

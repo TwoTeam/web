@@ -26,14 +26,19 @@ include_once 'header.php';
             <a href="#contact">Kontakt</a>
         </li>
         <li></li>
-        <li>
-            <a href="login.php">Prijava</a>
-        </li>
+        <?php
+        if (isset($_SESSION['user_id'])) {
+            echo '<li><a href="admin.php">Admin</a></li>';
+            echo '<li><a href="logout.php">Odjava</a></li>';
+        } else {
+            echo '<li><a href="login.php">Prijava</a></li>';
+        }
+        ?>
     </ul>
 </nav>
 
 <!-- Header -->
-<header id="top" class="header">
+<header id="top" class="header index-image">
     <div class="text-vertical-center">
         <h1>EventHub</h1>
         <h3>Nikoli več ne zamudite dogajanja.</h3>
@@ -143,35 +148,33 @@ include_once 'header.php';
                 <div class="row">
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="img/portfolio-1.jpg">
+                            <a href="img/portfolio-1.jpg" data-lightbox="roadtrip" data-title="Slika 1">
                                 <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="#">
+                            <a href="img/portfolio-2.jpg" data-lightbox="roadtrip" data-title="Slika 2">
                                 <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="#">
+                            <a href="img/portfolio-3.jpg" data-lightbox="roadtrip" data-title="Slika 3">
                                 <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="#">
+                            <a href="img/portfolio-4.jpg" data-lightbox="roadtrip" data-title="Slika 4">
                                 <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
                             </a>
                         </div>
                     </div>
                 </div>
-                <!-- /.row (nested) -->
-                <a href="#" class="btn btn-dark">View More Items</a>
             </div>
             <!-- /.col-lg-10 -->
         </div>
@@ -198,12 +201,12 @@ include_once 'header.php';
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
-                <h4><strong>Start Bootstrap</strong>
+                <h4><strong>EventHub</strong>
                 </h4>
-                <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                <p>Trg mladosti 3<br />3320 Velenje, Slovenija</p>
                 <ul class="list-unstyled">
-                    <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
+                    <li><i class="fa fa-phone fa-fw"></i> +386 (0) 70 723 596</li>
+                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:info@eventhub.com">info@eventhub.com</a>
                     </li>
                 </ul>
                 <br>
@@ -219,46 +222,11 @@ include_once 'header.php';
                     </li>
                 </ul>
                 <hr class="small">
-                <p class="text-muted">Copyright &copy; Your Website 2014</p>
+                <p class="text-muted">Copyright &copy; 2015 EventHub<br />Vse pravice pridržane!</p>
             </div>
         </div>
     </div>
 </footer>
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Custom Theme JavaScript -->
-<script>
-    // Closes the sidebar menu
-    $("#menu-close").click(function (e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Opens the sidebar menu
-    $("#menu-toggle").click(function (e) {
-        e.preventDefault();
-        $("#sidebar-wrapper").toggleClass("active");
-    });
-
-    // Scrolls to the selected menu item on the page
-    $(function () {
-        $('a[href*=#]:not([href=#])').click(function () {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-</script>
 
 <?php
 include_once 'footer.php';

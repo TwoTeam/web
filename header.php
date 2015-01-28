@@ -20,6 +20,8 @@ include_once 'session.php';
         <link href="css/alertify.core.css" rel="stylesheet">
         <link href="css/alertify.default.css" rel="stylesheet">
         <link rel="shortcut icon" href="img/ikona.png">
+        
+	<link rel="stylesheet" href="css/lightbox.css">
     </head>
 
     <body>
