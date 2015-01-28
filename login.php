@@ -2,15 +2,15 @@
 include_once 'header.php';
 ?>
 <div class="block-flat">
-    <form style="width: 300px; margin: 0 auto;" method="post" action="login_check.php">
+    <form class="ajaxForm" style="width: 300px; margin: 0 auto;" method="post" action="login_check.php">
         <h2 class="form-signin-heading">Prijava</h2>
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-            <input type="email" class="form-control" placeholder="Elektronski naslov">
+            <input type="text" name="email" class="form-control" placeholder="Elektronski naslov">
         </div><br />
         <div class="input-group">
             <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-            <input type="password" class="form-control" placeholder="Geslo">
+            <input type="password" name="password" class="form-control" placeholder="Geslo">
         </div>
         <br />
         <div class="input-group">
