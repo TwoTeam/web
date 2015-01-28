@@ -4,6 +4,14 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: login.php');
     die();
 }
+
+$user_id = $_SESSION['user_id'];
+$user = user_data($user_id, $link);
+
+if ($user['type'] == 0) {
+    header('Location: index.php');
+    die();
+}
 ?>
 
 <!-- Navigation -->
@@ -44,7 +52,7 @@ if (!isset($_SESSION['user_id'])) {
 <header id="top" class="header admin-image">
     <div class="text-vertical-center">
         <h1>EventHub</h1>
-        <h3>Pozdravljen, administrator.</h3>
+        <h3>Pozdravljen, <?php echo $user['name'].' '.$user['surname']; ?>.</h3>
         <br>
         <a href="#about" class="btn btn-light btn-lg">Dodaj dogodek</a>
     </div>
@@ -55,10 +63,22 @@ if (!isset($_SESSION['user_id'])) {
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>O EventHub mobilni aplikaciji</h2>
-                <p class="lead">S pomočjo GPS signala uporabniku na zemljevidu prikaže vse trenutne in prihajajoče dogodke v obsegu 30km.
-                    <br />Dogodki se razvrstijo na uporabnikovi najljubši zvrsti glasbe.</p>
-                <a href="download.php" class="btn btn-dark btn-lg">Prenos v1.0 (Android OS)</a>
+                <h2>Dodaj nov dogodek</h2>
+                <form action="add_event.php" method="post">
+                    Vrsta dogodka:<br />
+                    <select class="form-control dropdown" name="genre">
+                        <?php
+                        $sql = mysqli_query($link, "SELECT * FROM genres");
+                        while ($genre = mysqli_fetch_assoc($sql)) {
+                            echo '<option value="'.$genre['id'].'">';
+                            echo $genre['name'];
+                            echo '</option>';
+                        }
+                        ?>
+                    </select>
+                    Ime dogodka:<br />
+                    <input class="form-control" type="text" name="name" />
+                </form>
             </div>
         </div>
         <!-- /.row -->
