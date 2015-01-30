@@ -4,7 +4,9 @@
 <script src="js/bootstrap-datetimepicker.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script>
-    $(".datetime").datetimepicker();
+    $(".datetime").datetimepicker({
+        language: "sl-SI"
+    });
     // Closes the sidebar menu
     $("#menu-close").click(function (e) {
         e.preventDefault();
