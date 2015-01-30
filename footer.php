@@ -1,4 +1,4 @@
-<!--  jQuery  -->
+<!--  Koledar  -->
 
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
