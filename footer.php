@@ -1,10 +1,10 @@
-<!--  Koledar  -->
-
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
-
+<!-- jQuery -->
+<script src="js/bootstrap-datetimepicker.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script>
+    $(".datetime").datetimepicker();
     // Closes the sidebar menu
     $("#menu-close").click(function (e) {
         e.preventDefault();
