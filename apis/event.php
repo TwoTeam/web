@@ -1,8 +1,13 @@
 <?php
+include_once '../database.php';
+$event = (int) $_POST["id"];
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+$query = "SELECT * FROM events WHERE id = $event";
+$result = mysqli_query($link, $query);
 
+if (mysqli_num_rows($result) == 1) {
+    $response = mysqli_fetch_array($result);
+} else {
+    $response = array("message" => "Napaka pri pridobivanju dogodka!");
+}
+echo json_encode($response);

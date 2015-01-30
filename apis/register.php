@@ -1,4 +1,5 @@
 <?php
+include_once '../database.php';
 $username = $_POST["username"];
 $name = $_POST["name"];
 $surname = $_POST["surname"];
