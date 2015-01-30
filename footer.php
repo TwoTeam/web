@@ -1,7 +1,16 @@
-<!--  Koledar  -->
-
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
+
+<!--  Koledar  -->
+<script src="js/bootstrap-datetimepicker.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $('.datetime').datetimepicker({
+            language: 'sl-SI'
+        });
+    });
+</script>
 
 <!-- Custom Theme JavaScript -->
 <script>

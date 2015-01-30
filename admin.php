@@ -64,41 +64,49 @@ if ($user['type'] == 0) {
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2>Dodaj nov dogodek</h2><br />
-                <form action="add_event.php" method="post">
-                    <h3>Vrsta dogodka:</h3>
-                    <select class="form-control dropdown" name="genre">
-                        <?php
-                        $sql = mysqli_query($link, "SELECT * FROM genres");
-                        while ($genre = mysqli_fetch_assoc($sql)) {
-                            echo '<option value="' . $genre['id'] . '">';
-                            echo $genre['name'];
-                            echo '</option>';
-                        }
-                        ?>
-                    </select>
-                    <h3>Kraj dogodka:</h3>
-                    <select class="form-control dropdown" name="place">
-                        <?php
-                        $sql = mysqli_query($link, "SELECT * FROM places");
-                        while ($place = mysqli_fetch_assoc($sql)) {
-                            echo '<option value="' . $place['id'] . '">';
-                            echo $place['name'] . ' (ZIP: ' . $place['post_number'] . ')';
-                            echo '</option>';
-                        }
-                        ?>
-                    </select>
-                    <h3>Ime dogodka:</h3>
-                    <input class="form-control" type="text" name="name" />
-                    <h3>Datum in čas začetka dogodka</h3>
-                    
-                </form>
+                <div class="col-lg-6 col-lg-offset-3">
+                    <form action="add_event.php" method="post">
+                        <h4>Vrsta dogodka:</h4>
+                        <select class="form-control dropdown" name="genre">
+                            <?php
+                            $sql = mysqli_query($link, "SELECT * FROM genres");
+                            while ($genre = mysqli_fetch_assoc($sql)) {
+                                echo '<option value="' . $genre['id'] . '">';
+                                echo $genre['name'];
+                                echo '</option>';
+                            }
+                            ?>
+                        </select><br />
+                        <h4>Kraj dogodka:</h4>
+                        <select class="form-control dropdown" name="place">
+                            <?php
+                            $sql = mysqli_query($link, "SELECT * FROM places");
+                            while ($place = mysqli_fetch_assoc($sql)) {
+                                echo '<option value="' . $place['id'] . '">';
+                                echo $place['name'] . ' (ZIP: ' . $place['post_number'] . ')';
+                                echo '</option>';
+                            }
+                            ?>
+                        </select><br />
+                        <h4>Ime dogodka:</h4>
+                        <input class="form-control" type="text" name="name" /><br />
+                        <h4>Datum in čas začetka dogodka</h4>
+                        <div class="input-group date datetime" data-min-view="2" data-start-view="4" lang="sl" data-date-format="dd-mm-yyyy" >
+                            <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
+                            <input class="form-control" name="start"  maxlength="12" size="16" type="text">
+                        </div>
+                        <br />
+                    </form>
+                </div>
             </div>
         </div>
         <!-- /.row -->
     </div>
     <!-- /.container -->
 </section>
-
+<script>
+$(".datetime")datetimepicker();
+</script>
 <?php
 include_once 'footer.php';
 ?>

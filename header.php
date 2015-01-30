@@ -22,6 +22,7 @@ include_once 'session.php';
         <link rel="shortcut icon" href="img/ikona.png">
         
 	<link rel="stylesheet" href="css/lightbox.css">
+        <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
     </head>
 
     <body>
