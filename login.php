@@ -16,7 +16,7 @@ include_once 'header.php';
         <div class="input-group">
             Ostani prijavljen
             <div class="onoffswitch tick">
-                <input type="checkbox" value="1" name="remember" class="onoffswitch-checkbox" id="myonoffswitch-tick">
+                <input type="checkbox" value="0" name="remember" class="onoffswitch-checkbox remember" id="myonoffswitch-tick">
                 <label class="onoffswitch-label" for="myonoffswitch-tick">
                     <span class="onoffswitch-inner"></span>
                     <span class="onoffswitch-switch tickswitch-switch"></span>

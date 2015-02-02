@@ -6,7 +6,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 $user_id = $_SESSION['user_id'];
-$user = user_data($user_id, $link);
+$user = user_data($link, $user_id);
 
 if ($user['type'] == 0) {
     header('Location: index.php');

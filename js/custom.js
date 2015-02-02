@@ -10,13 +10,25 @@ $(".ajaxForm").on("submit", function () {
         var $this = $(this),
                 name = $this.attr('name'), //Ime, ki ga sprejme $_POST["name"]
                 value = $this.val(); //Vrednost $_POST["name"]
+                data[name] = value; //Tabela se polni s podatki
+                
+                if (name === 'remember')
+                {
+                    if ($('.remember').prop('checked'))
+                    {
+                        data[name] = "1";
+                    }
+                    else
+                    {
+                        data[name] = "0";
+                    }
+                }
         if (name === 'redirect')
         {
             $redirect = value; //Kam te preusmeri funkcija, če je pošiljanje forme uspešno in se v formi pošlje lokacija
         } else {
             $redirect = "";
         }
-        data[name] = value; //Tabela se polni s podatki
     });
     $.ajax({
         url: url,
