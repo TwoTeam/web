@@ -4,10 +4,8 @@ include_once 'database.php';
 ob_start();
 session_start();
 
-if (!empty($_COOKIE['cookname']) && !empty($_COOKIE['cookpass']) && ($_SESSION['logged'] != 1) && $_COOKIE['check'] == 1) {
-    autoLogin($_COOKIE['cookname'], $_COOKIE['cookpass']);
-} else {
-    
+if (!empty($_COOKIE['cookname']) && !empty($_COOKIE['cookpass']) && ($_SESSION['logged'] != 1) && $_COOKIE['check'] == 1 && $_SERVER["REQUEST_URI"] != '/web/login.php') {
+    autoLogin($_COOKIE['cookname'], $_COOKIE['cookpass'], $link);
 }
 
 function user_data($link, $user_id) {
@@ -19,7 +17,7 @@ function user_data($link, $user_id) {
     return $data;
 }
 
-function autoLogin($email, $password) {
+function autoLogin($email, $password, $link) {
     $sql = mysqli_query($link, sprintf("SELECT * FROM users WHERE email = '%s' AND password = '%s'", $email, $password));
     $user = mysqli_fetch_assoc($sql);
     $count = mysqli_num_rows($sql);
@@ -30,7 +28,7 @@ function autoLogin($email, $password) {
         header('Location: admin.php');
         die();
     } else {
-        header('Location: login3.php');
+        header('Location: login.php');
         die();
     }
 }
