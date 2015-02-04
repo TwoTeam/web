@@ -11,6 +11,7 @@ include_once 'session.php';
         <meta name="author" content="">
 
         <link href="css/stylish-portfolio.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/style1.css" />
 
         <!-- Custom Fonts -->
         <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -21,7 +22,7 @@ include_once 'session.php';
         <link href="css/alertify.default.css" rel="stylesheet">
         <link rel="shortcut icon" href="img/ikona.png">
         <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
-	<link rel="stylesheet" href="css/lightbox.css">
+        <link rel="stylesheet" href="css/lightbox.css">
         <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
     </head>
 

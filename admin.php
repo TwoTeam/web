@@ -14,6 +14,15 @@ if ($user['type'] == 0) {
 }
 ?>
 
+<ul style="list-style-type: none;" class="cb-slideshow">
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+</ul>
+
 <!-- Navigation -->
 <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
 <nav id="sidebar-wrapper">
@@ -51,23 +60,23 @@ if ($user['type'] == 0) {
 <!-- Header -->
 <header id="top" class="header admin-image">
     <div class="text-vertical-center">
-        <h1>EventHub</h1>
-        <h3>Pozdravljen, <?php echo $user['name'] . ' ' . $user['surname']; ?>.</h3>
+        <h1 class="title">EventHub</h1>
+        <h3 class="sub_title">Pozdravljen, <?php echo $user['name'] . ' ' . $user['surname']; ?>.</h3>
         <br>
         <a href="#about" class="btn btn-light btn-lg">Dodaj dogodek</a>
     </div>
 </header>
 
 <!-- About -->
-<section id="about" class="about">
+<section id="about" class="about bg-new">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2>Dodaj nov dogodek</h2><br />
                 <div class="col-lg-6 col-lg-offset-3">
                     <form action="add_event.php" method="post">
-                        <h4>Vrsta dogodka:</h4>
                         <select class="form-control dropdown" name="genre">
+                            <option disabled selected>Vrsta dogodka:</option>
                             <?php
                             $sql = mysqli_query($link, "SELECT * FROM genres");
                             while ($genre = mysqli_fetch_assoc($sql)) {
@@ -77,25 +86,30 @@ if ($user['type'] == 0) {
                             }
                             ?>
                         </select><br />
-                        <h4>Kraj dogodka:</h4>
-                        <select class="form-control dropdown" name="place">
+                        <input class="form-control" type="text" name="name" placeholder="Ime dogodka:" /><br />
+                        <input class="form-control" type="text" name="address" placeholder="Točen naslov dogodka:" /><br />
+                        <!-- <select class="form-control dropdown" name="place">
+                            <option disabled selected>Kraj dogodka:</option>
                             <?php
-                            $sql = mysqli_query($link, "SELECT * FROM places");
+                            /* $sql = mysqli_query($link, "SELECT * FROM places ORDER BY name ASC");
                             while ($place = mysqli_fetch_assoc($sql)) {
                                 echo '<option value="' . $place['id'] . '">';
-                                echo $place['name'] . ' (ZIP: ' . $place['post_number'] . ')';
+                                echo $place['name'] . ' (Poštna številka: ' . $place['number'] . ')';
                                 echo '</option>';
-                            }
+                            } */
                             ?>
-                        </select><br />
-                        <h4>Ime dogodka:</h4>
-                        <input class="form-control" type="text" name="name" /><br />
-                        <h4>Datum in čas začetka dogodka</h4>
+                        </select><br /><br /> -->
                         <div class="input-group date datetime" data-start-view="4" lang="sl" data-date-format="dd. mm. yyyy ob hh:ii" >
                             <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
-                            <input class="form-control" name="start" type="text">
-                        </div>
+                            <input placeholder="Datum in čas začetka dogodka" class="form-control" name="start" type="text">
+                        </div><br />
+                        <div class="input-group date datetime" data-start-view="4" lang="sl" data-date-format="dd. mm. yyyy ob hh:ii" >
+                            <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
+                            <input placeholder="Datum in čas konca dogodka" class="form-control" name="end" type="text">
+                        </div><br />
+                        <textarea placeholder="Opis dogodka..." name="desc" class="form-control" rows="10"></textarea>
                         <br />
+                        <input class="btn btn-lg btn-success" type="submit" value="Dodaj dogodek" />
                     </form>
                 </div>
             </div>

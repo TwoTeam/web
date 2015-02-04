@@ -1,7 +1,7 @@
 <?php
 include_once 'header.php';
 ?>
-<div class="block-flat">
+<div class="block-flat" style="z-index: 100;">
     <form class="ajaxForm" style="width: 300px; margin: 0 auto;" method="post" action="login_check.php">
         <h2 class="form-signin-heading">Prijava</h2>
         <div class="input-group">

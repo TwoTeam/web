@@ -6401,3 +6401,17 @@ input[type=radio]:checked+.lbl::before{content: "\e067";}
 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch.tickswitch-switch{border-radius:0 20px 20px 0;background-color:#1c7aad;border-color:#1c7aad;background-position:-288px 1px;border-right-width:10px;}
 .warning-switch .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch.tickswitch-switch{background-color:#df6e1e;border-color:#df6e1e;}
 .switch-square .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch.tickswitch-switch{border-radius:0 5px 5px 0;}
+
+.title {
+    color: #cccc00 !important;
+    text-shadow: 1px 1px 2px #000 !important;
+}
+
+.sub_title {
+    color: #ff6666 !important;
+    text-shadow: 1px 1px 2px #000 !important;
+}
+
+.bg-new {
+    background-color: #a4e7e5 !important;
+}

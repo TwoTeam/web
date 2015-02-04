@@ -2,6 +2,15 @@
 include_once 'header.php';
 ?>
 
+<ul style="list-style-type: none;" class="cb-slideshow">
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+    <li><span></span><div></div></li>
+</ul>
+
 <!-- Navigation -->
 <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
 <nav id="sidebar-wrapper">
@@ -40,8 +49,8 @@ include_once 'header.php';
 <!-- Header -->
 <header id="top" class="header index-image">
     <div class="text-vertical-center">
-        <h1>EventHub</h1>
-        <h3>Nikoli več ne zamudite dogajanja.</h3>
+        <h1 class="title">EventHub</h1>
+        <h3 class="sub_title">Nikoli več ne zamudite dogajanja.</h3>
         <br>
         <a href="#about" class="btn btn-light btn-lg">Več informacij</a>
     </div>
@@ -54,7 +63,7 @@ include_once 'header.php';
             <div class="col-lg-12 text-center">
                 <h2>O EventHub mobilni aplikaciji</h2>
                 <p class="lead">S pomočjo GPS signala uporabniku na zemljevidu prikaže vse trenutne in prihajajoče dogodke v obsegu 30km.
-                <br />Dogodki se razvrstijo na uporabnikovi najljubši zvrsti glasbe.</p>
+                    <br />Dogodki se razvrstijo na uporabnikovi najljubši zvrsti glasbe.</p>
                 <a href="download.php" class="btn btn-dark btn-lg">Prenos v1.0 (Android OS)</a>
             </div>
         </div>

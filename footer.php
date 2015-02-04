@@ -1,7 +1,9 @@
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
 
+<script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
+
 <!-- Custom Theme JavaScript -->
 <script>
     $(".datetime").datetimepicker({
