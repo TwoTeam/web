@@ -24,6 +24,10 @@ include_once 'session.php';
         <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
         <link rel="stylesheet" href="css/lightbox.css">
         <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
     </head>
 
     <body>
+        <div id="midground"></div>
+	<div id="foreground"></div>
