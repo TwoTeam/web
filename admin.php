@@ -62,7 +62,7 @@ if ($user['type'] == 0) {
             <div class="col-lg-12 text-center">
                 <h2>Dodaj nov dogodek</h2><br />
                 <div class="col-lg-6 col-lg-offset-3">
-                    <form action="" method="post">
+                    <form class="ajaxForm" action="add_event.php" method="post">
                         <select name="genre" class="selectpicker" data-live-search="true" data-size="auto" data-width="100%" title="Vrsta dogodka">
                             <?php
                             $sql = mysqli_query($link, "SELECT * FROM genres");
