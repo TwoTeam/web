@@ -1,59 +1,48 @@
 <!-- jQuery -->
 <script src="js/jquery.js"></script>
 
-<!-- background -->
-<script async src="js/jquery.backgroundPosition.js" type="text/javascript"></script>
-<script async type="text/javascript">
-    $(function () {
-        $('#midground').css({backgroundPosition: '0px 0px'});
-        $('#foreground').css({backgroundPosition: '0px 0px'});
-
-        $('#midground').animate({
-            backgroundPosition: "(-10000px -2000px)"
-        }, 240000, 'linear');
-
-        $('#foreground').animate({
-            backgroundPosition: "(-10000px -2000px)"
-        }, 120000, 'linear');
-    });
-</script>
-
 <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
 
+<!-- select -->
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript">
+    $('.selectpicker').selectpicker();
+</script>
+
 <!-- Custom Theme JavaScript -->
 <script>
-            $(".datetime").datetimepicker({
-                language: "sl-SI"
-            });
-            // Closes the sidebar menu
-            $("#menu-close").click(function (e) {
-                e.preventDefault();
-                $("#sidebar-wrapper").toggleClass("active");
-            });
+    $(".datetime").datetimepicker({
+        language: "sl-SI"
+    });
+    // Closes the sidebar menu
+    $("#menu-close").click(function (e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
 
-            // Opens the sidebar menu
-            $("#menu-toggle").click(function (e) {
-                e.preventDefault();
-                $("#sidebar-wrapper").toggleClass("active");
-            });
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
 
-            // Scrolls to the selected menu item on the page
-            $(function () {
-                $('a[href*=#]:not([href=#])').click(function () {
-                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+    // Scrolls to the selected menu item on the page
+    $(function () {
+        $('a[href*=#]:not([href=#])').click(function () {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
 
-                        var target = $(this.hash);
-                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                        if (target.length) {
-                            $('html,body').animate({
-                                scrollTop: target.offset().top
-                            }, 1000);
-                            return false;
-                        }
-                    }
-                });
-            });
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
 </script>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

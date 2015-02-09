@@ -6415,24 +6415,3 @@ input[type=radio]:checked+.lbl::before{content: "\e067";}
 .bg-new {
     background-color: #a4e7e5 !important;
 }
-
-@keyframes animatedBackground {
-    from { background-position: 0 0; }
-    to { background-position: 100% 0; }
-}
-
-#midground {
-    background: url(../img/midground.png) repeat 20% 20%;
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 1;
-    animation: animatedBackground 40s linear infinite;
-}
-
-#foreground {
-    background: url(../img/foreground.png) repeat 90% 110%;
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 1;
-    animation: animatedBackground 40s linear infinite;
-}

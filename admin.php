@@ -29,22 +29,10 @@ if ($user['type'] == 0) {
     <ul class="sidebar-nav">
         <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
         <li class="sidebar-brand">
-            <a href="#top">EventHub</a>
+            <a href="index.php">EventHub</a>
         </li>
         <li>
-            <a href="#top">Predstavitev</a>
-        </li>
-        <li>
-            <a href="#about">O aplikaciji</a>
-        </li>
-        <li>
-            <a href="#services">Storitve</a>
-        </li>
-        <li>
-            <a href="#portfolio">Izdelki</a>
-        </li>
-        <li>
-            <a href="#contact">Kontakt</a>
+            <a href="#about">Dodaj dogodek</a>
         </li>
         <li></li>
         <?php
@@ -74,9 +62,8 @@ if ($user['type'] == 0) {
             <div class="col-lg-12 text-center">
                 <h2>Dodaj nov dogodek</h2><br />
                 <div class="col-lg-6 col-lg-offset-3">
-                    <form action="add_event.php" method="post">
-                        <select class="form-control dropdown" name="genre">
-                            <option disabled selected>Vrsta dogodka:</option>
+                    <form action="" method="post">
+                        <select name="genre" class="selectpicker" data-live-search="true" data-size="auto" data-width="100%" title="Vrsta dogodka">
                             <?php
                             $sql = mysqli_query($link, "SELECT * FROM genres");
                             while ($genre = mysqli_fetch_assoc($sql)) {
@@ -85,19 +72,20 @@ if ($user['type'] == 0) {
                                 echo '</option>';
                             }
                             ?>
-                        </select><br />
+                        </select><br /><br />
+
                         <input class="form-control" type="text" name="name" placeholder="Ime dogodka:" /><br />
                         <input class="form-control" type="text" name="address" placeholder="Točen naslov dogodka:" /><br />
                         <!-- <select class="form-control dropdown" name="place">
                             <option disabled selected>Kraj dogodka:</option>
-                            <?php
-                            /* $sql = mysqli_query($link, "SELECT * FROM places ORDER BY name ASC");
-                            while ($place = mysqli_fetch_assoc($sql)) {
-                                echo '<option value="' . $place['id'] . '">';
-                                echo $place['name'] . ' (Poštna številka: ' . $place['number'] . ')';
-                                echo '</option>';
-                            } */
-                            ?>
+                        <?php
+                        /* $sql = mysqli_query($link, "SELECT * FROM places ORDER BY name ASC");
+                          while ($place = mysqli_fetch_assoc($sql)) {
+                          echo '<option value="' . $place['id'] . '">';
+                          echo $place['name'] . ' (Poštna številka: ' . $place['number'] . ')';
+                          echo '</option>';
+                          } */
+                        ?>
                         </select><br /><br /> -->
                         <div class="input-group date datetime" data-start-view="4" lang="sl" data-date-format="dd. mm. yyyy ob hh:ii" >
                             <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>

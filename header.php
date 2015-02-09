@@ -26,6 +26,7 @@ include_once 'session.php';
         <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
         
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
     </head>
 
     <body>

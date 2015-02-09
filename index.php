@@ -17,7 +17,7 @@ include_once 'header.php';
     <ul class="sidebar-nav">
         <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
         <li class="sidebar-brand">
-            <a href="#top">EventHub</a>
+            <a href="index.php">EventHub</a>
         </li>
         <li>
             <a href="#top">Predstavitev</a>
