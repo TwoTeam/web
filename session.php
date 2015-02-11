@@ -40,4 +40,9 @@ function dateconvertion($date) {
     $date_conv = strtotime(str_replace('. ', '-', implode(' ', $date)));
     return date('Y-m-d H:i', $date_conv);
 }
+
+function dateToHuman($date) {
+    $date_conv = strtotime($date);
+    return date('d. m. Y - H:i', $date_conv);
+}
 ?>

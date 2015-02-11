@@ -32,6 +32,9 @@ if ($user['type'] == 0) {
             <a href="index.php">EventHub</a>
         </li>
         <li>
+            <a href="events.php">Pregled dogodkov</a>
+        </li>
+        <li>
             <a href="#about">Dodaj dogodek</a>
         </li>
         <li>
@@ -44,8 +47,6 @@ if ($user['type'] == 0) {
         <?php
         if (isset($_SESSION['user_id'])) {
             echo '<li><a href="logout.php">Odjava</a></li>';
-        } else {
-            echo '<li><a href="login.php">Prijava</a></li>';
         }
         ?>
     </ul>

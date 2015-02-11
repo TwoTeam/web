@@ -22,7 +22,7 @@ if ($_POST) {
             echo 'error|Dogodek <b>'.$name.'</b> že obstaja!';
             die();
         } else {
-            $sql2 = sprintf("INSERT INTO events (genre_id, place_id, name, event_start, event_end, description) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')", $genre, $address, $name, $start_date, $end_date, $desc);
+            $sql2 = sprintf("INSERT INTO events (genre_id, address, name, event_start, event_end, description) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')", $genre, $address, $name, $start_date, $end_date, $desc);
             if (mysqli_query($link, $sql2)) {
                 echo 'success|Dela';
                 die();
