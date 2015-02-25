@@ -6415,3 +6415,5 @@ input[type=radio]:checked+.lbl::before{content: "\e067";}
 .bg-new {
     background-color: #a4e7e5 !important;
 }
+
+#map { height: 100%; height: 300px; margin: 0; padding: 0;}

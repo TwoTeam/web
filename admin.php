@@ -90,14 +90,14 @@ if ($user['type'] == 0) {
                         <input class="form-control" type="text" name="address" placeholder="Točen naslov dogodka:" /><br />
                         <!-- <select class="form-control dropdown" name="place">
                             <option disabled selected>Kraj dogodka:</option>
-                            <?php
-                            /* $sql = mysqli_query($link, "SELECT * FROM places ORDER BY name ASC");
-                            while ($place = mysqli_fetch_assoc($sql)) {
-                                echo '<option value="' . $place['id'] . '">';
-                                echo $place['name'] . ' (Poštna številka: ' . $place['number'] . ')';
-                                echo '</option>';
-                            } */
-                            ?>
+                        <?php
+                        /* $sql = mysqli_query($link, "SELECT * FROM places ORDER BY name ASC");
+                          while ($place = mysqli_fetch_assoc($sql)) {
+                          echo '<option value="' . $place['id'] . '">';
+                          echo $place['name'] . ' (Poštna številka: ' . $place['number'] . ')';
+                          echo '</option>';
+                          } */
+                        ?>
                         </select><br /><br /> -->
                         <div class="input-group date datetime" data-start-view="4" lang="sl" data-date-format="dd. mm. yyyy ob hh:ii" >
                             <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
@@ -109,17 +109,93 @@ if ($user['type'] == 0) {
                         </div><br />
                         <textarea placeholder="Opis dogodka..." name="desc" class="form-control" rows="10"></textarea>
                         <br />
+                        <input id="address" name="mapaddress" class="form-control" type="text" placeholder="Vnesi točen naslov dogodka"/>
+                        <br />
+                        <div id="map">
+
+                        </div>
+                        <br />
                         <input class="btn btn-lg btn-success" type="submit" value="Dodaj dogodek" />
                     </form>
                 </div>
             </div>
         </div>
+        <button onclick="codeAddress()">Preveri lokacijo</button>
         <!-- /.row -->
     </div>
     <!-- /.container -->
 </section>
 <script>
     $(".datetime")datetimepicker();
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpCfd_V_fbUoF5d2MjBfViV2M0KhrKYCk"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+<!--<script type="text/javascript">
+    var marker;
+    var geocoder;
+    var map;
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var mapOptions = {
+            center: {lat: 46.3621265, lng: 15.1111722},
+            zoom: 14
+        };
+        map = new google.maps.Map(document.getElementById('map'),
+                mapOptions);
+        marker = new google.maps.Marker({
+            position: {lat: 46.3621265, lng: 15.1111722},
+            map: map,
+            draggable: true,
+            title: 'Lokacija dogodka'
+        });
+    }
+
+    $(document).on("change", "[name=mapaddress]", function () {
+        var address = document.getElementById('mapaddress').value;
+        geocoder.geocode({'address': address}, function (results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    });
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>-->
+<script>
+    var geocoder;
+    var map;
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(46.3621265, 15.1111722);
+        var mapOptions = {
+            zoom: 14,
+            center: latlng
+        }
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    }
+
+    function codeAddress() {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 <?php
 include_once 'footer.php';

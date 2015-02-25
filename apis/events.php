@@ -1,7 +1,7 @@
 <?php
 include_once '../database.php';
 
-$user = $_POST["user_id"];
+$user = $_REQUEST["user_id"];
 
 $query = "SELECT * FROM events WHERE deleted = 0";
 $result = mysqli_query($link, $query);
@@ -11,7 +11,7 @@ if (mysqli_num_rows($result) > 0) {
         $response[] = $row;
     }
 } else {
-    $response = array("message" => "Trenutno ni dodanih dogodkov!");
+    $response = array("response" => false, "message" => "Trenutno ni dodanih dogodkov!");
 }
 
 echo json_encode($response);
