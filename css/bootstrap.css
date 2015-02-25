@@ -900,8 +900,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family: 'Source Sans Pro', sans-serif !important;
+  font-size: 11px !important;
   line-height: 1.42857143;
   color: #333;
   background-color: #fff;
@@ -6403,13 +6403,25 @@ input[type=radio]:checked+.lbl::before{content: "\e067";}
 .switch-square .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch.tickswitch-switch{border-radius:0 5px 5px 0;}
 
 .title {
-    color: #cccc00 !important;
-    text-shadow: 1px 1px 2px #000 !important;
+    opacity: 0.8 !important;
+    /* text-shadow: 1px 1px 2px #000 !important; */
+    font-family: 'Open Sans', sans-serif !important;
+    font-size: 5em !important;
+    text-shadow:
+    -1px -1px 5px #fff,
+    1px -1px 5px #fff,
+    -1px 1px 5px #fff,
+    1px 1px 5px #fff;
 }
 
 .sub_title {
-    color: #ff6666 !important;
-    text-shadow: 1px 1px 2px #000 !important;
+    color: #fff !important;
+    font-family: 'Open Sans', sans-serif !important;
+    text-shadow:
+    -1px -1px 0px #000,
+    1px -1px 0px #000,
+    -1px 1px 0px #000,
+    1px 1px 0px #000;
 }
 
 .bg-new {

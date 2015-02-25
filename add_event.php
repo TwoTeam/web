@@ -24,7 +24,7 @@ if ($_POST) {
         } else {
             $sql2 = sprintf("INSERT INTO events (genre_id, address, name, event_start, event_end, description) VALUES ('%s', '%s', '%s', '%s', '%s', '%s')", $genre, $address, $name, $start_date, $end_date, $desc);
             if (mysqli_query($link, $sql2)) {
-                echo 'success|Dela';
+                echo 'redirect|events.php#about';
                 die();
             } else {
                 echo 'error|Napaka pri dodajanju dogodka!';
