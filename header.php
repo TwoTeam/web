@@ -25,6 +25,15 @@ include_once 'session.php';
         <link rel="stylesheet" href="css/lightbox.css">
         <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css" />
+        
+        <!-- custom fonts (title, body) -->
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
+        <div id="midground"></div>
+	<div id="foreground"></div>

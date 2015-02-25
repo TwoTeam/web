@@ -4,6 +4,12 @@
 <script type="text/javascript" src="js/modernizr.custom.86080.js"></script>
 <script src="js/bootstrap-datetimepicker.min.js"></script>
 
+<!-- select -->
+<script type="text/javascript" src="js/bootstrap-select.min.js"></script>
+<script type="text/javascript">
+    $('.selectpicker').selectpicker();
+</script>
+
 <!-- Custom Theme JavaScript -->
 <script>
     $(".datetime").datetimepicker({

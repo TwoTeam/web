@@ -29,29 +29,24 @@ if ($user['type'] == 0) {
     <ul class="sidebar-nav">
         <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
         <li class="sidebar-brand">
-            <a href="#top">EventHub</a>
+            <a href="index.php">EventHub</a>
         </li>
         <li>
-            <a href="#top">Predstavitev</a>
+            <a href="events.php">Pregled dogodkov</a>
         </li>
         <li>
-            <a href="#about">O aplikaciji</a>
+            <a href="#about">Dodaj dogodek</a>
         </li>
         <li>
-            <a href="#services">Storitve</a>
+            <a href="#vrsta">Dodaj vrsto dogodka</a>
         </li>
         <li>
-            <a href="#portfolio">Izdelki</a>
-        </li>
-        <li>
-            <a href="#contact">Kontakt</a>
+            <a href="#about2">Dodaj državo</a>
         </li>
         <li></li>
         <?php
         if (isset($_SESSION['user_id'])) {
             echo '<li><a href="logout.php">Odjava</a></li>';
-        } else {
-            echo '<li><a href="login.php">Prijava</a></li>';
         }
         ?>
     </ul>
@@ -64,19 +59,20 @@ if ($user['type'] == 0) {
         <h3 class="sub_title">Pozdravljen, <?php echo $user['name'] . ' ' . $user['surname']; ?>.</h3>
         <br>
         <a href="#about" class="btn btn-light btn-lg">Dodaj dogodek</a>
+        <a href="#vrsta" class="btn btn-light btn-lg">Dodaj vrsto dogodka</a>
+        <a href="#about2" class="btn btn-light btn-lg">Dodaj državo</a>
     </div>
 </header>
 
-<!-- About -->
+<!-- dodajanje dogodka -->
 <section id="about" class="about bg-new">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2>Dodaj nov dogodek</h2><br />
                 <div class="col-lg-6 col-lg-offset-3">
-                    <form action="add_event.php" method="post">
-                        <select class="form-control dropdown" name="genre">
-                            <option disabled selected>Vrsta dogodka:</option>
+                    <form class="ajaxForm" action="add_event.php" method="post">
+                        <select name="genre" class="selectpicker" data-live-search="true" data-size="auto" data-width="100%" title="Vrsta dogodka">
                             <?php
                             $sql = mysqli_query($link, "SELECT * FROM genres");
                             while ($genre = mysqli_fetch_assoc($sql)) {
@@ -85,7 +81,8 @@ if ($user['type'] == 0) {
                                 echo '</option>';
                             }
                             ?>
-                        </select><br />
+                        </select><br /><br />
+
                         <input class="form-control" type="text" name="name" placeholder="Ime dogodka:" /><br />
                         <input class="form-control" type="text" name="address" placeholder="Točen naslov dogodka:" /><br />
                         <!-- <select class="form-control dropdown" name="place">
@@ -125,6 +122,47 @@ if ($user['type'] == 0) {
     </div>
     <!-- /.container -->
 </section>
+
+<!-- dodajanje vrste dogodka -->
+<aside id="vrsta" class="call-to-action bg-primary">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Dodaj vrsto dogodka</h2><br />
+                <div class="col-lg-6 col-lg-offset-3">
+                    <form class="ajaxForm" action="add_event_type.php" method="post">
+                        <input class="form-control" type="text" name="name" placeholder="Ime dogodka:" /><br />
+                        <textarea placeholder="Opis vrste dogodka..." name="desc" class="form-control" rows="10"></textarea>
+                        <br />
+                        <input class="btn btn-lg btn-success" type="submit" value="Dodaj vrsto dogodka" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- dodajanje države -->
+<section id="about2" class="about bg-new">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Dodaj državo</h2><br />
+                <div class="col-lg-6 col-lg-offset-3">
+                    <form class="ajaxForm" action="add_country.php" method="post">
+                        <input class="form-control" type="text" name="name" placeholder="Ime države:" /><br />
+                        <input class="form-control" type="text" name="code" placeholder="Kratica države:" /><br />
+                        <br />
+                        <input class="btn btn-lg btn-success" type="submit" value="Dodaj državo" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+
 <script>
     $(".datetime")datetimepicker();
 </script>

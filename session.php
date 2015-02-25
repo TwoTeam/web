@@ -1,4 +1,5 @@
 <?php
+
 include_once 'database.php';
 
 ob_start();
@@ -21,7 +22,7 @@ function autoLogin($email, $password, $link) {
     $sql = mysqli_query($link, sprintf("SELECT * FROM users WHERE email = '%s' AND password = '%s'", $email, $password));
     $user = mysqli_fetch_assoc($sql);
     $count = mysqli_num_rows($sql);
-    
+
     if ($count == 1) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['logged'] = 1;
@@ -31,5 +32,17 @@ function autoLogin($email, $password, $link) {
         header('Location: login.php');
         die();
     }
+}
+
+function dateconvertion($date) {
+    $date = explode(' ob ', $date);
+
+    $date_conv = strtotime(str_replace('. ', '-', implode(' ', $date)));
+    return date('Y-m-d H:i', $date_conv);
+}
+
+function dateToHuman($date) {
+    $date_conv = strtotime($date);
+    return date('d. m. Y - H:i', $date_conv);
 }
 ?>
