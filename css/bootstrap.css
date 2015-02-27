@@ -6417,6 +6417,7 @@ input[type=radio]:checked+.lbl::before{content: "\e067";}
 .sub_title {
     color: #fff !important;
     font-family: 'Open Sans', sans-serif !important;
+    opacity: 0.8 !important;
     text-shadow:
     -1px -1px 0px #000,
     1px -1px 0px #000,
