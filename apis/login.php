@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include_once '../database.php';
 
 $login = $_REQUEST["user"];
@@ -10,10 +10,10 @@ $result = mysqli_query($link, $query);
 if(mysqli_num_rows($result) == 1){
     //SUCCESS
     $user = mysqli_fetch_array($result);
-    $response = array("response" => true, "name" => $user["name"], "surname" => $user["surname"], "id" => $user["id"]);
+    $response["result"][] = array("response" => true, "name" => $user["name"], "surname" => $user["surname"], "id" => $user["id"]);
 } else {
     //NOPE.avi
-    $response = array("response" => false, "message" => "Uporabnik s takšnim uporabniškim imenom in geslom ne obstaja!");
+    $response["result"][] = array("response" => false, "message" => "Uporabnik s taksnim uporabniskim imenom in geslom ne obstaja!");
 }
 
 echo json_encode($response);

@@ -85,10 +85,13 @@ if ($user['type'] == 0) {
                             ?>
                         </select><br /><br />
 
-                        <input class="form-control" type="text" name="name" placeholder="Ime dogodka:" /><br />
-                        <input class="form-control" type="text" name="address" placeholder="Točen naslov dogodka:" /><br />
-                        <!-- <select class="form-control dropdown" name="place">
-                            <option disabled selected>Kraj dogodka:</option>
+                        <input class="form-control" type="text" name="name" placeholder="Ime dogodka:" />
+                        <div id="locationField">
+                            <input id="autocomplete" class="form-control" placeholder="Vnesi kraj dogodka:" onFocus="geolocate()" type="text" />
+                        </div><br />
+                        <div id="map" class="form-control" onkeydown="enter();" style="height: 300px;"></div><br />
+                                        <!-- <select class="form-control dropdown" name="place">
+                                            <option disabled selected>Kraj dogodka:</option>
                         <?php
                         /* $sql = mysqli_query($link, "SELECT * FROM places ORDER BY name ASC");
                           while ($place = mysqli_fetch_assoc($sql)) {
@@ -97,7 +100,7 @@ if ($user['type'] == 0) {
                           echo '</option>';
                           } */
                         ?>
-                        </select><br /><br /> -->
+                                        </select><br /><br /> -->
                         <div class="input-group date datetime" data-start-view="4" lang="sl" data-date-format="dd. mm. yyyy ob hh:ii" >
                             <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
                             <input placeholder="Datum in čas začetka dogodka" class="form-control" name="start" type="text">
@@ -106,20 +109,12 @@ if ($user['type'] == 0) {
                             <span class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
                             <input placeholder="Datum in čas konca dogodka" class="form-control" name="end" type="text">
                         </div><br />
-                        <textarea placeholder="Opis dogodka..." name="desc" class="form-control" rows="10"></textarea>
-                        <br />
-                        <input id="address" name="mapaddress" class="form-control" type="text" placeholder="Vnesi točen naslov dogodka"/>
-                        <br />
-                        <div id="map">
-
-                        </div>
-                        <br />
-                        <input class="btn btn-lg btn-success" type="submit" value="Dodaj dogodek" />
+                        <textarea placeholder="Opis dogodka..." name="desc" class="form-control" rows="10"></textarea><br />
+                        <br /><input class="btn btn-lg btn-success" type="submit" value="Dodaj dogodek" />
                     </form>
                 </div>
             </div>
         </div>
-        <button onclick="codeAddress()">Preveri lokacijo</button>
         <!-- /.row -->
     </div>
     <!-- /.container -->
@@ -207,7 +202,7 @@ if ($user['type'] == 0) {
 
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>-->
-<script>
+<!-- <script>
     var geocoder;
     var map;
     function initialize() {
@@ -236,7 +231,110 @@ if ($user['type'] == 0) {
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
+</script> -->
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+<script>
+    var geocoder;
+    var marker;
+    function enter() {
+        $(document).keypress(function (e) {
+            if (e.which === 13) {
+                var address = document.getElementById('autocomplete').value;
+                geocoder.geocode({'address': address}, function (results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        marker.setVisible(false);
+                        var place = results[0];
+                        if (!place.geometry) {
+                            return;
+                        }
+                        document.getElementById('autocomplete').value = place.formatted_address;
+                        alert(place.geometry.location);
+                        // console.log(place);
+                        // If the place has a geometry, then present it on a map.
+                        if (place.geometry.viewport) {
+                            map.fitBounds(place.geometry.viewport);
+                        } else {
+                            map.setCenter(place.geometry.location);
+                            map.setZoom(14);  // Why 17? Because it looks good.
+                        }
+                        marker.setPosition(place.geometry.location);
+                        marker.setVisible(true);
+                        infowindow.open(map, marker);
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            }
+        });
+    }
+
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var mapOptions = {
+            center: new google.maps.LatLng(46.3621265, 15.1111722),
+            zoom: 13
+        };
+        var map = new google.maps.Map(document.getElementById('map'),
+                mapOptions);
+
+        var input = /** @type {HTMLInputElement} */(
+                document.getElementById('autocomplete'));
+
+        var types = document.getElementById('type-selector');
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        marker = new google.maps.Marker({
+            position: {lat: 46.3621265, lng: 15.1111722},
+            map: map,
+            draggable: true,
+            title: 'Lokacija dogodka'
+        });
+
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            marker.setVisible(false);
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                return;
+            }
+
+            // If the place has a geometry, then present it on a map.
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport);
+            } else {
+                map.setCenter(place.geometry.location);
+                map.setZoom(14);  // Why 17? Because it looks good.
+            }
+            marker.setPosition(place.geometry.location);
+            marker.setVisible(true);
+
+            infowindow.open(map, marker);
+        });
+
+        // Sets a listener on a radio button to change the filter type on Places
+        // Autocomplete.
+        function setupClickListener(id, types) {
+            var radioButton = document.getElementById(id);
+            google.maps.event.addDomListener(radioButton, 'click', function () {
+                autocomplete.setTypes(types);
+            });
+        }
+
+        setupClickListener('changetype-all', []);
+        setupClickListener('changetype-address', ['address']);
+        setupClickListener('changetype-establishment', ['establishment']);
+        setupClickListener('changetype-geocode', ['geocode']);
+    }
+
+    $(document).ready(function () {
+        initialize();
+    });
 </script>
+
 <?php
 include_once 'footer.php';
 ?>

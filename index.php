@@ -157,15 +157,15 @@ include_once 'header.php';
                 <div class="row">
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="img/sc1.jpg" data-lightbox="roadtrip" data-title="Slika 1">
-                                <img class="img-portfolio img-responsive" src="img/sc1.jpg">
+                            <a href="img/portfolio-1.jpg" data-lightbox="roadtrip" data-title="Slika 1">
+                                <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="img/sc2.jpg" data-lightbox="roadtrip" data-title="Slika 2">
-                                <img class="img-portfolio img-responsive" src="img/sc2.jpg">
+                            <a href="img/portfolio-2.jpg" data-lightbox="roadtrip" data-title="Slika 2">
+                                <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
                             </a>
                         </div>
                     </div>
@@ -225,9 +225,6 @@ include_once 'header.php';
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
                     </li>
                 </ul>
                 <hr class="small">
