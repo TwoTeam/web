@@ -26,10 +26,7 @@ include_once 'header.php';
             <a href="#about">O aplikaciji</a>
         </li>
         <li>
-            <a href="#services">Storitve</a>
-        </li>
-        <li>
-            <a href="#portfolio">Izdelki</a>
+            <a href="#portfolio">Slike</a>
         </li>
         <li>
             <a href="#contact">Kontakt</a>
@@ -143,8 +140,12 @@ include_once 'header.php';
 <!-- Callout -->
 <aside class="callout">
     <div class="text-vertical-center">
-        <h1>Vertically Centered Text</h1>
+        <h1>EventHub</h1>
+        <h3>Where fun connects people together!</h3>
+        <h3>Kjer zabava združuje ljudi!</h3>
     </div>
+    <div class="imageOne image"></div>
+    <div class="imageTwo image"></div>
 </aside>
 
 <!-- Portfolio -->
@@ -157,29 +158,29 @@ include_once 'header.php';
                 <div class="row">
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="img/portfolio-1.jpg" data-lightbox="roadtrip" data-title="Slika 1">
-                                <img class="img-portfolio img-responsive" src="img/portfolio-1.jpg">
+                            <a href="img/sc1.png" data-lightbox="roadtrip" data-title="Slika 3">
+                                <img class="img-portfolio img-responsive" src="img/sc1.png">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="img/portfolio-2.jpg" data-lightbox="roadtrip" data-title="Slika 2">
-                                <img class="img-portfolio img-responsive" src="img/portfolio-2.jpg">
+                            <a href="img/sc2.png" data-lightbox="roadtrip" data-title="Slika 4">
+                                <img class="img-portfolio img-responsive" src="img/sc2.png">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="img/portfolio-3.jpg" data-lightbox="roadtrip" data-title="Slika 3">
-                                <img class="img-portfolio img-responsive" src="img/portfolio-3.jpg">
+                            <a href="img/sc3.png" data-lightbox="roadtrip" data-title="Slika 4">
+                                <img class="img-portfolio img-responsive" src="img/sc3.png">
                             </a>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="portfolio-item">
-                            <a href="img/portfolio-4.jpg" data-lightbox="roadtrip" data-title="Slika 4">
-                                <img class="img-portfolio img-responsive" src="img/portfolio-4.jpg">
+                            <a href="img/sc4.png" data-lightbox="roadtrip" data-title="Slika 4">
+                                <img class="img-portfolio img-responsive" src="img/sc4.png">
                             </a>
                         </div>
                     </div>

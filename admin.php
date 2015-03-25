@@ -75,6 +75,7 @@ if ($user['type'] == 0) {
                 <div class="col-lg-6 col-lg-offset-3">
                     <form class="ajaxForm" action="add_event.php" method="post">
                         <select name="genre" class="selectpicker" data-live-search="true" data-size="auto" data-width="100%" title="Vrsta dogodka">
+                            <option disabled selected>Vrsta dogodka</option>
                             <?php
                             $sql = mysqli_query($link, "SELECT * FROM genres");
                             while ($genre = mysqli_fetch_assoc($sql)) {
@@ -90,8 +91,8 @@ if ($user['type'] == 0) {
                             <input id="autocomplete" class="form-control" placeholder="Vnesi kraj dogodka:" onFocus="geolocate()" type="text" />
                         </div><br />
                         <div id="map" class="form-control" onkeydown="enter();" style="height: 300px;"></div><br />
-                                        <!-- <select class="form-control dropdown" name="place">
-                                            <option disabled selected>Kraj dogodka:</option>
+                        <!-- <select class="form-control dropdown" name="place">
+                            <option disabled selected>Kraj dogodka:</option>
                         <?php
                         /* $sql = mysqli_query($link, "SELECT * FROM places ORDER BY name ASC");
                           while ($place = mysqli_fetch_assoc($sql)) {
