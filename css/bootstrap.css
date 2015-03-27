@@ -6402,6 +6402,8 @@ input[type=radio]:checked+.lbl::before{content: "\e067";}
 .warning-switch .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch.tickswitch-switch{background-color:#df6e1e;border-color:#df6e1e;}
 .switch-square .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch.tickswitch-switch{border-radius:0 5px 5px 0;}
 
+/* eventhub css */
+
 .title {
     opacity: 0.8 !important;
     /* text-shadow: 1px 1px 2px #000 !important; */
@@ -6429,10 +6431,10 @@ input[type=radio]:checked+.lbl::before{content: "\e067";}
     background-color: #a4e7e5 !important;
 }
 
-/* google maps */
+.povecaj_font {
+    font-size: 1.5em;
+}
 
-#map-canvas {
-    height: 100%;
-    margin: 0px;
-    padding: 0px
+.povecaj_font_title {
+    font-size: 4em;
 }

@@ -141,7 +141,6 @@ include_once 'header.php';
 <aside class="callout">
     <div class="text-vertical-center">
         <h1>EventHub</h1>
-        <h3>Where fun connects people together!</h3>
         <h3>Kjer zabava združuje ljudi!</h3>
     </div>
     <div class="imageOne image"></div>
@@ -156,31 +155,45 @@ include_once 'header.php';
                 <h2>Zaslonske slike aplikacije</h2>
                 <hr class="small">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-3 col-md-offset-3">
                         <div class="portfolio-item">
                             <a href="img/sc1.png" data-lightbox="roadtrip" data-title="Slika 3">
                                 <img class="img-portfolio img-responsive" src="img/sc1.png">
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="portfolio-item">
                             <a href="img/sc2.png" data-lightbox="roadtrip" data-title="Slika 4">
                                 <img class="img-portfolio img-responsive" src="img/sc2.png">
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3 col-md-offset-3">
                         <div class="portfolio-item">
                             <a href="img/sc3.png" data-lightbox="roadtrip" data-title="Slika 4">
                                 <img class="img-portfolio img-responsive" src="img/sc3.png">
                             </a>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-3">
                         <div class="portfolio-item">
                             <a href="img/sc4.png" data-lightbox="roadtrip" data-title="Slika 4">
                                 <img class="img-portfolio img-responsive" src="img/sc4.png">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-3">
+                        <div class="portfolio-item">
+                            <a href="img/sc5.jpg" data-lightbox="roadtrip" data-title="Slika 4">
+                                <img class="img-portfolio img-responsive" src="img/sc5.jpg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="portfolio-item">
+                            <a href="img/sc6.jpg" data-lightbox="roadtrip" data-title="Slika 4">
+                                <img class="img-portfolio img-responsive" src="img/sc6.jpg">
                             </a>
                         </div>
                     </div>
@@ -193,30 +206,16 @@ include_once 'header.php';
     <!-- /.container -->
 </section>
 
-<!-- Call to Action -->
-<aside class="call-to-action bg-primary">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h3>The buttons below are impossible to resist.</h3>
-                <a href="#" class="btn btn-lg btn-light">Click Me!</a>
-                <a href="#" class="btn btn-lg btn-dark">Look at Me!</a>
-            </div>
-        </div>
-    </div>
-</aside>
-
 <!-- Footer -->
 <footer id="contact" class="contact">
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-lg-offset-1 text-center">
-                <h4><strong>EventHub</strong>
-                </h4>
-                <p>Trg mladosti 3<br />3320 Velenje, Slovenija</p>
+                <h4 class="povecaj_font_title"><strong>EventHub</strong></h4>
+                <p class="povecaj_font">Trg mladosti 3<br />3320 Velenje, Slovenija</p>
                 <ul class="list-unstyled">
-                    <li><i class="fa fa-phone fa-fw"></i> +386 (0) 70 723 596</li>
-                    <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:info@eventhub.com">info@eventhub.com</a>
+                    <li><i class="fa fa-phone fa-fw povecaj_font"></i> <span class="povecaj_font">+386 (0) 70 723 596</span></li>
+                    <li><i class="fa fa-envelope-o fa-fw povecaj_font"></i>  <a class="povecaj_font" href="mailto:info@eventhub.com">info@eventhub.com</a>
                     </li>
                 </ul>
                 <br>
@@ -229,7 +228,7 @@ include_once 'header.php';
                     </li>
                 </ul>
                 <hr class="small">
-                <p class="text-muted">Copyright &copy; 2015 EventHub<br />Vse pravice pridržane!</p>
+                <p class="text-muted povecaj_font">Copyright &copy; 2015 EventHub<br />Vse pravice pridržane!</p>
             </div>
         </div>
     </div>

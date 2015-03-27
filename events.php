@@ -77,16 +77,18 @@ if ($user['type'] == 0) {
                                 <td><b>Opis dogodka</b></td>
                             </tr>
                             <?php
-                            $stv = 1;
                             $sql = mysqli_query($link, "SELECT * FROM events ORDER BY event_start");
+                            $stv = 1;
                             $barva1 = 'class="success"';
                             $barva2 = 'class="warning"';
                             while ($event = mysqli_fetch_assoc($sql)) {
                                 $barva = ($stv % 2 == 0) ? $barva1 : $barva2;
+                                $sql2 = mysqli_query($link, "SELECT * FROM places WHERE id = ".$event['place_id']);
+                                $place = mysqli_fetch_assoc($sql2);
                                 echo '<tr '.$barva.'>';
                                 echo '<td>'.$stv.'</td>';
                                 echo '<td>'.$event['name'].'</td>';
-                                echo '<td>'.$event['address'].'</td>';
+                                echo '<td>'.$place['name'].' (poštna št.: '.$place['number'].')</td>';
                                 echo '<td>'.dateToHuman($event['event_start']).'</td>';
                                 echo '<td>'.dateToHuman($event['event_end']).'</td>';
                                 if (strlen($event['description']) > 50) {
