@@ -60,8 +60,8 @@ if ($user['type'] == 0) {
         <h1 class="title">EventHub</h1>
         <h3 class="sub_title">Pozdravljen, <?php echo $user['name'] . ' ' . $user['surname']; ?>.</h3>
         <br>
-        <a href="#about" class="btn btn-light btn-lg">Dodaj dogodek</a>
-        <a href="#vrsta" class="btn btn-light btn-lg">Dodaj vrsto dogodka</a>
+        <a href="#about" class="btn btn-light btn-lg">Dodaj dogodek</a>&nbsp;
+        <a href="#vrsta" class="btn btn-light btn-lg">Dodaj vrsto dogodka</a>&nbsp;
         <a href="#about2" class="btn btn-light btn-lg">Dodaj državo</a>
     </div>
 </header>
