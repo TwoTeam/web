@@ -223,7 +223,7 @@ if ($user['type'] == 0) {
                 {
                     document.getElementById('marker_location').value = marker.getPosition();
                 });
-                
+
                 document.getElementById('marker_address').value = place.formatted_address;
                 document.getElementById('typed_address').value = document.getElementById('pac-input').value;
                 map.setCenter(place.geometry.location);
